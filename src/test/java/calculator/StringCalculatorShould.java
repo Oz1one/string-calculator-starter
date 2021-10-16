@@ -56,4 +56,35 @@ class StringCalculatorShould {
     	assertEquals(90,stringCalculator.add("//.\n70.20"));
     }
     
+    //testing on negative values
+    @Test
+    void string_with_negative_integers() {
+    	try {
+    		stringCalculator.add("-1,20,70");
+    		fail("Exception expected");
+    	}catch(RuntimeException re){
+    		
+    	}
+    }
+    
+    @Test
+    void string_with_negative_integers_and_giving_values() {
+    	try {
+    		stringCalculator.add("-1,20,70");
+    		fail("Exception expected");
+    	}catch(RuntimeException re){
+    		assertEquals("Negatives not allowed!! [-1]", re.getMessage());
+    	}
+    }
+    
+    @Test
+    void string_with_negative_integers_and_giving_values_multiple() {
+    	try {
+    		stringCalculator.add("-1,-20,70");
+    		fail("Exception expected");
+    	}catch(RuntimeException re){
+    		assertEquals("Negatives not allowed!! [-1, -20]", re.getMessage());
+    	}
+    }
+    
 }

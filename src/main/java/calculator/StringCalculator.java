@@ -1,7 +1,12 @@
 package calculator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.management.RuntimeErrorException;
 
 class StringCalculator {
 
@@ -12,6 +17,15 @@ class StringCalculator {
         else {
         	
         	 String [] newarr1=delimiter(input);
+        	 List <Integer> negativeArray= new ArrayList<>();
+        	 for(String s:newarr1) {
+        		 if(Integer.parseInt(s)<0) {
+        			 negativeArray.add(Integer.parseInt(s));
+        		 }
+        	 }
+        	 if(!negativeArray.isEmpty()) {
+        		 throw new RuntimeException("Negatives not allowed!! "+Arrays.toString(negativeArray.toArray()));
+        	 }
         	 
         	int sum=0;
         	for(String s: newarr1) {
