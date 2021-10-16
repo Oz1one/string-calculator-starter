@@ -44,4 +44,16 @@ class StringCalculatorShould {
     void string_with_new_line_and_comma_as_delimiter() {
     	assertEquals(90, stringCalculator.add("20,20\n50"));
     }
+    //testing if method supports a different delimiter
+    @Test
+    void string_with_different_delimiters() {
+    	assertEquals(90,stringCalculator.add("//;\n70;20"));
+    }
+  //testing if method supports a different delimiter
+    @Test
+    void string_with_different_delimiters_2() {
+    	
+    	assertEquals(90,stringCalculator.add("//.\n70.20"));
+    }
+    
 }
