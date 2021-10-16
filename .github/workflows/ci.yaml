@@ -29,5 +29,11 @@ jobs:
 
     - name: Build with Gradle
       run: gradle build
-   
-    
+      
+    - name: build docker image and publish
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: oz1one/demo-app
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
