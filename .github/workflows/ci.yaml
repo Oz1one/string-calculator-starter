@@ -30,6 +30,9 @@ jobs:
     - name: Build with Gradle
       run: gradle build
       
+    - name: build docker image
+      run: docker build --file Dockerfile
+      
     - name: build docker image and publish
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
